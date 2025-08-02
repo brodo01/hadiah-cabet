@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hadiah Ulang Tahun untuk Elicabet 🎁</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom right, #ffe6f0, #d0f0ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #start, #main {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    #main {
+      display: none;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #ff69b4;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 15px 30px;
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff69b4;
+      color: white;
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: pink;
+      animation: fall 4s infinite;
+      opacity: 0.8;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="start">
+    <h1>Hai, Elicabet! 🎁</h1>
+    <p>Ada hadiah kecil untukmu. Klik tombol di bawah ini untuk membukanya!</p>
+    <button onclick="openGift()">Buka Hadiah 🎂</button>
+  </div>
+
+  <div id="main">
+    <h1>Selamat Ulang Tahun, Elicabet! 🎉</h1>
+    <p>
+      Hari ini adalah hari istimewa untuk seseorang yang sangat spesial.<br>
+      Semoga kamu selalu ceria seperti pelangi, manis seperti permen kapas,<br>
+      dan terus bersinar seperti bintang di malam hari.<br><br>
+      Jangan pernah berhenti bermimpi dan tersenyum,<br>
+      karena dunia ini jadi lebih indah dengan kehadiranmu.<br><br>
+      🎈 Happy 17th Birthday! 🎈<br>
+      Semoga semua harapanmu di tahun ini menjadi kenyataan.<br><br>
+      Dengan penuh cinta dan peluk hangat 💖
+    </p>
+  </div>
+
+  <audio id="bgm" src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" autoplay loop></audio>
+
+  <script>
+    function openGift() {
+      document.getElementById('start').style.display = 'none';
+      document.getElementById('main').style.display = 'flex';
+      generateConfetti();
+      document.getElementById('bgm').play();
+    }
+
+    function generateConfetti() {
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDelay = Math.random() * 4 + 's';
+        confetti.style.backgroundColor = ["#ffb6c1", "#add8e6", "#ff69b4", "#f0e68c"][Math.floor(Math.random()*4)];
+        document.body.appendChild(confetti);
+      }
+    }
+  </script>
+</body>
+</html>
